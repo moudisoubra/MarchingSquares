@@ -13,6 +13,8 @@ public class Pathfinding : MonoBehaviour
     public Vector3 startVector;
     public Vector3 targetVector;
 
+    public DateTime before;
+
     public bool walk;
     public bool startThread;
     public bool startNormal;
@@ -37,14 +39,13 @@ public class Pathfinding : MonoBehaviour
 
         if (startThread)
         {
-            DateTime before = DateTime.Now;
+            before = DateTime.Now;
             findPathThread = new Thread(() => FindPath(startVector, targetVector));
             findPathThread.IsBackground = false;
             findPathThread.Start();
 
-            DateTime after = DateTime.Now;
-            TimeSpan duration = after.Subtract(before);
-            Debug.Log("Duration in milliseconds MultiThreaded Mode: " + duration.Milliseconds);
+
+            //Debug.Log("Duration in milliseconds MultiThreaded Mode: " + duration.Milliseconds);
             startThread = false;
         }
 
@@ -53,9 +54,7 @@ public class Pathfinding : MonoBehaviour
             DateTime before = DateTime.Now;
             FindPath(startVector, targetVector);
 
-            DateTime after = DateTime.Now;
-            TimeSpan duration = after.Subtract(before);
-            Debug.Log("Duration in milliseconds Normal Mode: " + duration.Milliseconds);
+            //Debug.Log("Duration in milliseconds Normal Mode: " + duration.Milliseconds);
             startNormal = false;
         }
 
@@ -117,6 +116,12 @@ public class Pathfinding : MonoBehaviour
             }
 
         }
+
+        DateTime after = DateTime.Now;
+
+        TimeSpan duration = after.Subtract(before);
+
+        Debug.Log("Duration in milliseconds Normal Mode: " + duration.Milliseconds);
 
     }
 
