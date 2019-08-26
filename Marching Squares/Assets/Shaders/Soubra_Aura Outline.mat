@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Soubra_Aura Outline
+  m_Shader: {fileID: 4800000, guid: 66eca0ab44d534e4985c60f144dc11ca, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 78893fb21097b8445b7c396d24e93cc3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: 59fd8b088e8447d42bd7f4667e45e11f, type: 3}
+        m_Scale: {x: 6.26, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Ramp:
+        m_Texture: {fileID: 2800000, guid: 78893fb21097b8445b7c396d24e93cc3, type: 3}
+        m_Scale: {x: 7.72, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Brightness: 3
+    - _Edge: 1
+    - _Opacity: 10
+    - _Outline: 0.8
+    - _OutlineZ: 0
+    - _RimPower: 10
+    - _Scale: 0.2
+    - _SpeedX: 8
+    - _SpeedY: 8.5
+    m_Colors:
+    - _Color: {r: 1, g: 0, b: 0, a: 1}
+    - _Color2: {r: 0, g: 0, b: 1, a: 1}
+    - _ColorR: {r: 0, g: 1, b: 1, a: 1}

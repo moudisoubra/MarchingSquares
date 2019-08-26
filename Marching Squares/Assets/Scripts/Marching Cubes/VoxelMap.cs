@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading;
 
 public class VoxelMap : MonoBehaviour
 {
@@ -9,13 +10,15 @@ public class VoxelMap : MonoBehaviour
     public int voxelResolution = 8;
     public int chunkResolution = 2;
 
+    public Thread voxelMapThread;
+
     public VoxelGrid voxelGridPrefab;
 
     private VoxelGrid[] chunks;
     private float chunkSize, voxelSize, halfSize;
 
     private static string[] fillTypeNames = { "Filled", "Empty" };
-    private static string[] stencilNames = { "Square", "Circle" };
+    private static string[] stencilNames = { "Square"};
     private int fillTypeIndex, radiusIndex, stencilIndex;
     private static string[] radiusNames = { "0", "1", "2", "3", "4", "5" };
     private void OnGUI()
@@ -23,10 +26,6 @@ public class VoxelMap : MonoBehaviour
         GUILayout.BeginArea(new Rect(4f, 4f, 150f, 500f));
         GUILayout.Label("Fill Type");
         fillTypeIndex = GUILayout.SelectionGrid(fillTypeIndex, fillTypeNames, 2);
-        GUILayout.Label("Radius");
-        radiusIndex = GUILayout.SelectionGrid(radiusIndex, radiusNames, 6);
-        GUILayout.Label("Stencil");
-        stencilIndex = GUILayout.SelectionGrid(stencilIndex, stencilNames, 2);
         GUILayout.EndArea();
     }
 
@@ -53,6 +52,8 @@ public class VoxelMap : MonoBehaviour
         BoxCollider box = gameObject.AddComponent<BoxCollider>();
         box.size = new Vector3(size, size);
     }
+
+
     private void Update()
     {
         if (Input.GetMouseButton(0))

@@ -6,17 +6,17 @@ using UnityEngine;
 public class VoxelGrid : MonoBehaviour
 {
     public VoxelGrid xNeighbor, yNeighbor, xyNeighbor;
-    private Mesh mesh;
-    private List<Vector3> vertices;
-    private List<int> triangles;
+    public Mesh mesh;
+    public List<Vector3> vertices;
+    public List<int> triangles;
 
     public GameObject voxelPrefab;
 
     public int resolution;
     public float voxelSize, gridSize;
-    private Voxel[] voxels;
-    private Voxel dummyX, dummyY, dummyT;
-    private Material[] voxelMaterials;
+    public Voxel[] voxels;
+    public Voxel dummyX, dummyY, dummyT;
+    public Material[] voxelMaterials;
     public void Initialize(int resolution, float size)
     {
         this.resolution = resolution;
